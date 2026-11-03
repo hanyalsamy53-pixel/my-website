@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#120305">
+<title>Rafiq AI – Your AI Companion</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ SVG ICONS (sprite) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 12h3v8h5v-5h4v5h5v-8h3z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/><circle cx="8.5" cy="10.5" r="1" fill="currentColor"/><circle cx="12" cy="10.5" r="1" fill="currentColor"/><circle cx="15.5" cy="10.5" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+    <symbol id="i-stats" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 20V10M10 20V5M15 20v-8M20 20V8"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></symbol>
+    <symbol id="i-task" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3h10l4 4v14H5z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M8 12h8M8 16h6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24"><path fill="currentColor" d="M3 7l5 4 4-6 4 6 5-4-2 12H5z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 6h7l2 2h9v11H3z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m20 20-4-4"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M2 21 23 12 2 3v7l15 2-15 2z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m4 20 1-5L16 4l4 4L9 19z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4zM10 21h4"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6 3h8l4 4v14H6z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="10" r="1.6" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m4 18 5-5 4 4 3-3 4 4"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ AUTH SCREEN ============ -->
+<section id="authScreen" class="auth-screen hidden">
+  <div class="auth-card glass">
+    <div class="brand-mini">
+      <span class="logo-star">✦</span>
+      <h2>Rafiq AI</h2>
+      <p data-i18n="authSub">رفيقك الذكي في كل وقت</p>
+    </div>
+    <div class="tabs">
+      <button class="tab active" id="tabLogin" data-i18n="login">تسجيل الدخول</button>
+      <button class="tab" id="tabSignup" data-i18n="signup">إنشاء حساب</button>
+    </div>
+    <form id="authForm" autocomplete="off">
+      <div class="field" id="nameField" style="display:none">
+        <label for="authName" data-i18n="name">الاسم</label>
+        <input type="text" id="authName" placeholder="هاني">
+      </div>
+      <div class="field">
+        <label for="authEmail" data-i18n="email">البريد الإلكتروني</label>
+        <input type="email" id="authEmail" placeholder="name@example.com" required>
+      </div>
+      <div class="field">
+        <label for="authPass" data-i18n="password">كلمة المرور</label>
+        <input type="password" id="authPass" placeholder="••••••••" required minlength="4">
+      </div>
+      <button type="submit" class="btn primary block" id="authSubmit" data-i18n="login">تسجيل الدخول</button>
+      <button type="button" class="btn ghost block" id="guestBtn" data-i18n="guest">المتابعة كضيف</button>
+    </form>
+    <p class="hint" data-i18n="authNote">ملاحظة: الحساب هنا تجريبي ومحفوظ على هذا المتصفح فقط، ولا يوجد خادم أو مزامنة بين الأجهزة.</p>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<div id="app" class="app">
+
+  <div id="overlay" class="overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <button class="menu-btn" id="menuToggle" aria-label="menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+    <nav class="nav" id="nav">
+      <button class="nav-item active" data-page="dashboard"><svg class="ic"><use href="#i-home"/></svg><span data-i18n="navHome">الصفحة الرئيسية</span></button>
+      <button class="nav-item" data-page="chats"><svg class="ic"><use href="#i-chat"/></svg><span data-i18n="navChats">المحادثات</span></button>
+      <button class="nav-item" data-page="discover"><svg class="ic"><use href="#i-compass"/></svg><span data-i18n="navDiscover">اكتشف</span></button>
+      <button class="nav-item" data-page="favorites"><svg class="ic"><use href="#i-star"/></svg><span data-i18n="navFav">المفضلة</span></button>
+      <button class="nav-item" data-page="stats"><svg class="ic"><use href="#i-stats"/></svg><span data-i18n="navStats">إحصائياتي</span></button>
+      <button class="nav-item" data-page="tasks"><svg class="ic"><use href="#i-task"/></svg><span data-i18n="navTasks">المهام</span></button>
+      <button class="nav-item" data-page="notes"><svg class="ic"><use href="#i-note"/></svg><span data-i18n="navNotes">الملاحظات</span></button>
+      <button class="nav-item" data-page="files"><svg class="ic"><use href="#i-folder"/></svg><span data-i18n="navFiles">الملفات</span></button>
+      <button class="nav-item" data-page="plans"><svg class="ic"><use href="#i-crown"/></svg><span data-i18n="navPlans">الاشتراكات</span></button>
+      <button class="nav-item" data-page="profile"><svg class="ic"><use href="#i-user"/></svg><span data-i18n="navProfile">الملف الشخصي</span></button>
+      <button class="nav-item" data-page="settings"><svg class="ic"><use href="#i-gear"/></svg><span data-i18n="navSettings">الإعدادات</span></button>
+    </nav>
+    <div class="side-bottom">
+      <button class="side-link" id="switchAccount"><svg class="ic"><use href="#i-user"/></svg><span data-i18n="switchAcc">تبديل الحساب</span></button>
+      <button class="side-link" id="logoutBtn"><svg class="ic"><use href="#i-logout"/></svg><span data-i18n="logout">الخروج</span></button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <header class="topbar">
+      <button class="menu-btn mobile-only" id="menuOpen" aria-label="menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+      <div class="brand">
+        <div class="brand-row"><span class="logo-star">✦</span><span class="brand-name">Rafiq</span></div>
+        <div class="brand-sub"><i></i><span>Your AI Companion</span><i></i></div>
+      </div>
+      <div class="top-actions">
+        <div class="search-pill" id="searchPill">
+          <button id="searchBtn" aria-label="search"><svg class="ic"><use href="#i-search"/></svg></button>
+          <input type="search" id="globalSearch" data-i18n-ph="search" placeholder="ابحث...">
+        </div>
+        <button class="crown" id="crownBtn" aria-label="premium"><svg class="ic"><use href="#i-crown"/></svg></button>
+        <button class="avatar-btn" id="avatarBtn" aria-label="profile">
+          <img id="topAvatar" alt="avatar" src="">
+          <span class="online-dot"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+
+      <!-- ===== 1) DASHBOARD ===== -->
+      <section class="page active" id="page-dashboard">
+        <h1 class="hello"><span class="wave">🖐️</span> <span data-i18n="hello">مرحبا بك يا</span> <span id="helloName">هاني</span></h1>
+        <p class="sub" data-i18n="helloSub">مستعد دائماً لمساعدتك في أي وقت ..</p>
+
+        <div class="card glass">
+          <div class="card-head">
+            <h3><svg class="ic"><use href="#i-cal"/></svg><span data-i18n="todaySchedule">جدولك اليوم</span></h3>
+            <button class="link" data-goto="tasks"><span data-i18n="viewAll">عرض الكل</span> ‹</button>
+          </div>
+          <div id="dashTasks" class="task-list scroll"></div>
+        </div>
+
+        <div class="card glass chat-mini">
+          <div class="msgs" id="dashMsgs"></div>
+        </div>
+
+        <form class="composer" id="dashComposer">
+          <button type="button" class="dots-btn" aria-label="options">●●</button>
+          <input type="text" id="dashInput" data-i18n-ph="typeMsg" placeholder="اكتب رسالتك هنا ..." autocomplete="off">
+          <button type="submit" class="send-btn" aria-label="send"><svg class="ic"><use href="#i-send"/></svg></button>
+        </form>
+      </section>
+
+      <!-- ===== 2) CHATS ===== -->
+      <section class="page" id="page-chats">
+        <div class="page-head">
+          <h2 data-i18n="navChats">المحادثات</h2>
+          <button class="btn primary sm" id="newChatBtn"><svg class="ic"><use href="#i-plus"/></svg><span data-i18n="newChat">محادثة جديدة</span></button>
+        </div>
+        <div class="chat-layout">
+          <div class="chat-list glass" id="chatListBox">
+            <input type="search" id="chatSearch" class="input" data-i18n-ph="searchChats" placeholder="ابحث في المحادثات...">
+            <div id="chatList"></div>
+          </div>
+          <div class="chat-window glass">
+            <div class="chat-title" id="chatTitle">—</div>
+            <div class="msgs big" id="chatMsgs"></div>
+            <div class="typing hidden" id="typing"><span></span><span></span><span></span></div>
+            <form class="composer in-card" id="chatComposer">
+              <button type="button" class="dots-btn" aria-label="options">●●</button>
+              <input type="text" id="chatInput" data-i18n-ph="typeMsg" placeholder="اكتب رسالتك هنا ..." autocomplete="off">
+              <button type="submit" class="send-btn" aria-label="send"><svg class="ic"><use href="#i-send"/></svg></button>
+            </form>
+            <p class="hint" data-i18n="apiNote">الردود الحالية تجريبية (محلية). للربط بذكاء اصطناعي حقيقي راجع README.md.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 3) DISCOVER ===== -->
+      <section class="page" id="page-discover">
+        <div class="page-head"><h2 data-i18n="navDiscover">اكتشف الأدوات الذكية</h2></div>
+        <div class="chips" id="toolChips"></div>
+        <div class="grid" id="toolGrid"></div>
+      </section>
+
+      <!-- ===== 4) FAVORITES ===== -->
+      <section class="page" id="page-favorites">
+        <div class="page-head"><h2 data-i18n="navFav">المفضلة</h2></div>
+        <div class="grid" id="favGrid"></div>
+        <p class="empty hidden" id="favEmpty" data-i18n="favEmpty">لا توجد عناصر في المفضلة بعد. اضغط ★ على أي أداة.</p>
+      </section>
+
+      <!-- ===== 5) STATS ===== -->
+      <section class="page" id="page-stats">
+        <div class="page-head"><h2 data-i18n="navStats">إحصائياتي</h2></div>
+        <div class="stat-grid">
+          <div class="stat glass"><b id="stChats">0</b><span data-i18n="stChats">المحادثات</span></div>
+          <div class="stat glass"><b id="stDone">0</b><span data-i18n="stDone">مهام مكتملة</span></div>
+          <div class="stat glass"><b id="stNotes">0</b><span data-i18n="stNotes">الملاحظات</span></div>
+          <div class="stat glass"><b id="stMsgs">0</b><span data-i18n="stMsgs">الرسائل</span></div>
+        </div>
+        <div class="card glass">
+          <h3 data-i18n="chartWeek">نشاط آخر 7 أيام</h3>
+          <canvas id="chartWeek" width="640" height="260"></canvas>
+          <div class="tip" id="chartTip"></div>
+        </div>
+        <div class="card glass">
+          <h3 data-i18n="chartTasks">حالة المهام</h3>
+          <canvas id="chartTasks" width="640" height="220"></canvas>
+        </div>
+      </section>
+
+      <!-- ===== 6) TASKS ===== -->
+      <section class="page" id="page-tasks">
+        <div class="page-head">
+          <h2 data-i18n="navTasks">المهام اليومية</h2>
+          <button class="btn primary sm" id="addTaskBtn"><svg class="ic"><use href="#i-plus"/></svg><span data-i18n="addTask">مهمة جديدة</span></button>
+        </div>
+        <div class="chips" id="taskFilters">
+          <button class="chip active" data-filter="all" data-i18n="fAll">الكل</button>
+          <button class="chip" data-filter="today" data-i18n="fToday">اليوم</button>
+          <button class="chip" data-filter="open" data-i18n="fOpen">غير مكتملة</button>
+          <button class="chip" data-filter="done" data-i18n="fDone">مكتملة</button>
+        </div>
+        <div id="taskList" class="task-list"></div>
+        <p class="empty hidden" id="taskEmpty" data-i18n="taskEmpty">لا توجد مهام. أضف أول مهمة لك.</p>
+      </section>
+
+      <!-- ===== 7) NOTES ===== -->
+      <section class="page" id="page-notes">
+        <div class="page-head">
+          <h2 data-i18n="navNotes">الملاحظات والكتابة</h2>
+          <button class="btn primary sm" id="addNoteBtn"><svg class="ic"><use href="#i-plus"/></svg><span data-i18n="addNote">ملاحظة جديدة</span></button>
+        </div>
+        <div class="notes-layout">
+          <div class="notes-side glass">
+            <input type="search" id="noteSearch" class="input" data-i18n-ph="searchNotes" placeholder="ابحث في الملاحظات...">
+            <div id="noteList"></div>
+          </div>
+          <div class="note-editor glass">
+            <input type="text" id="noteTitle" class="input title" data-i18n-ph="noteTitle" placeholder="عنوان الملاحظة">
+            <textarea id="noteBody" class="input" rows="12" data-i18n-ph="noteBody" placeholder="اكتب هنا... (يُحفظ تلقائياً)"></textarea>
+            <div class="editor-bar">
+              <span class="saved" id="noteSaved"></span>
+              <button class="btn ghost sm" id="noteStar"><svg class="ic"><use href="#i-star"/></svg><span data-i18n="important">مهمة</span></button>
+              <button class="btn danger sm" id="noteDelete"><svg class="ic"><use href="#i-trash"/></svg><span data-i18n="delete">حذف</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 8) SETTINGS ===== -->
+      <section class="page" id="page-settings">
+        <div class="page-head"><h2 data-i18n="navSettings">الإعدادات</h2></div>
+        <div class="card glass">
+          <h3 data-i18n="appearance">المظهر</h3>
+          <div class="row"><span data-i18n="theme">الوضع</span>
+            <div class="seg" id="themeSeg">
+              <button data-theme="dark" data-i18n="dark">داكن</button>
+              <button data-theme="light" data-i18n="light">فاتح</button>
+            </div>
+          </div>
+          <div class="row"><span data-i18n="lang">اللغة</span>
+            <div class="seg" id="langSeg">
+              <button data-lang="ar">العربية</button>
+              <button data-lang="en">English</button>
+            </div>
+          </div>
+          <div class="row"><span data-i18n="accent">لون الواجهة</span>
+            <div class="swatches" id="accentSwatches">
+              <button data-accent="#ff1f3d" style="background:#ff1f3d" aria-label="red"></button>
+              <button data-accent="#ff6a00" style="background:#ff6a00" aria-label="orange"></button>
+              <button data-accent="#b517ff" style="background:#b517ff" aria-label="purple"></button>
+              <button data-accent="#1f8bff" style="background:#1f8bff" aria-label="blue"></button>
+            </div>
+          </div>
+          <div class="row"><span data-i18n="fontSize">حجم الخط</span>
+            <input type="range" id="fontRange" min="14" max="22" step="1" value="16">
+          </div>
+        </div>
+        <div class="card glass">
+          <h3 data-i18n="privacy">الخصوصية والبيانات</h3>
+          <div class="row"><span data-i18n="notif">الإشعارات المرئية</span><label class="switch"><input type="checkbox" id="notifToggle" checked><i></i></label></div>
+          <div class="row"><span data-i18n="saveChats">حفظ المحادثات محلياً</span><label class="switch"><input type="checkbox" id="saveChatsToggle" checked><i></i></label></div>
+          <p class="hint" data-i18n="lsNote">كل بياناتك مخزنة في LocalStorage داخل هذا المتصفح فقط: لا مزامنة بين الأجهزة، وتُحذف إذا مسحت بيانات المتصفح. حجمها محدود (حوالي 5MB).</p>
+          <div class="btn-row">
+            <button class="btn ghost" id="exportBtn" data-i18n="export">تصدير بياناتي</button>
+            <button class="btn danger" id="resetBtn" data-i18n="resetAll">مسح كل البيانات</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 9) PROFILE ===== -->
+      <section class="page" id="page-profile">
+        <div class="page-head"><h2 data-i18n="navProfile">الملف الشخصي</h2></div>
+        <div class="card glass profile-card">
+          <div class="big-avatar"><img id="profileAvatar" alt="avatar" src=""></div>
+          <div class="field"><label for="pfName" data-i18n="name">الاسم</label><input type="text" id="pfName" class="input"></div>
+          <div class="field"><label for="pfEmail" data-i18n="email">البريد الإلكتروني</label><input type="email" id="pfEmail" class="input"></div>
+          <div class="field"><label for="pfBio" data-i18n="bio">نبذة</label><textarea id="pfBio" class="input" rows="3"></textarea></div>
+          <div class="field"><label for="pfAvatar" data-i18n="changeAvatar">تغيير الصورة</label><input type="file" id="pfAvatar" accept="image/*" class="input"></div>
+          <button class="btn primary" id="pfSave" data-i18n="save">حفظ</button>
+        </div>
+      </section>
+
+      <!-- ===== 11) PLANS ===== -->
+      <section class="page" id="page-plans">
+        <div class="page-head"><h2 data-i18n="navPlans">الاشتراكات والمميزات</h2></div>
+        <div class="plans">
+          <div class="plan glass">
+            <h3>Free</h3><div class="price">$0</div>
+            <ul><li data-i18n="pf1">محادثات تجريبية</li><li data-i18n="pf2">مهام وملاحظات</li><li data-i18n="pf3">تخزين محلي</li></ul>
+            <button class="btn ghost block" data-plan="free" data-i18n="currentPlan">خطتك الحالية</button>
+          </div>
+          <div class="plan glass featured">
+            <span class="badge">★ Pro</span>
+            <h3>Pro</h3><div class="price">$9<small>/mo</small></div>
+            <ul><li data-i18n="pp1">ربط API حقيقي</li><li data-i18n="pp2">مزامنة سحابية (مستقبلاً)</li><li data-i18n="pp3">دعم أولوية</li></ul>
+            <button class="btn primary block" data-plan="pro" data-i18n="choosePro">اختر Pro</button>
+          </div>
+        </div>
+        <p class="hint" data-i18n="plansNote">هذه صفحة عرض فقط؛ لا يوجد نظام دفع حقيقي. زر الاختيار يحفظ الخطة محلياً للتجربة.</p>
+      </section>
+
+      <!-- ===== 12) FILES ===== -->
+      <section class="page" id="page-files">
+        <div class="page-head"><h2 data-i18n="navFiles">إدارة الملفات</h2></div>
+        <div class="card glass">
+          <div class="btn-row">
+            <label class="btn primary"><svg class="ic"><use href="#i-image"/></svg><span data-i18n="pickImages">اختيار صور</span><input type="file" id="imgInput" accept="image/*" multiple hidden></label>
+            <label class="btn ghost"><svg class="ic"><use href="#i-file"/></svg><span data-i18n="pickFiles">اختيار ملفات</span><input type="file" id="fileInput" multiple hidden></label>
+          </div>
+          <p class="hint" data-i18n="filesNote">الملفات المختارة تبقى في هذه الصفحة فقط ولا تُرفع إلى أي خادم إلا بعد إضافة نظام رفع حقيقي.</p>
+          <div id="fileList" class="file-list"></div>
+          <p class="empty hidden" id="fileEmpty" data-i18n="fileEmpty">لم تختر ملفات بعد.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ============ MODAL (tasks) ============ -->
+<div id="modal" class="modal hidden">
+  <form class="modal-card glass" id="taskForm">
+    <h3 id="modalTitle" data-i18n="addTask">مهمة جديدة</h3>
+    <div class="field"><label for="tkTitle" data-i18n="taskTitle">العنوان</label><input type="text" id="tkTitle" class="input" required></div>
+    <div class="two">
+      <div class="field"><label for="tkDate" data-i18n="date">التاريخ</label><input type="date" id="tkDate" class="input" required></div>
+      <div class="field"><label for="tkTime" data-i18n="time">الوقت</label><input type="time" id="tkTime" class="input" required></div>
+    </div>
+    <div class="field"><label for="tkPrio" data-i18n="priority">الأولوية</label>
+      <select id="tkPrio" class="input">
+        <option value="normal" data-i18n="pNormal">عادية</option>
+        <option value="high" data-i18n="pHigh">مهمة</option>
+        <option value="urgent" data-i18n="pUrgent">مهم جداً</option>
+      </select>
+    </div>
+    <div class="btn-row">
+      <button type="submit" class="btn primary" data-i18n="save">حفظ</button>
+      <button type="button" class="btn ghost" id="modalCancel" data-i18n="cancel">إلغاء</button>
+    </div>
+  </form>
+</div>
+
+<!-- Image preview -->
+<div id="preview" class="modal hidden"><img id="previewImg" alt="preview"></div>
+
+<!-- Toasts -->
+<div id="toasts" class="toasts"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
